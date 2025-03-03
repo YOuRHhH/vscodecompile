@@ -1,0 +1,98 @@
+{
+  "name": "zztool",
+  "displayName": "ZZTOOL",
+  "description": "Alert Go Home",
+  "version": "1.0.5",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "icon": "logo.png",
+  "publisher": "SHOWTIME",
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WelcomeEverybody/vscodecompile"
+  },
+  "activationEvents": ["*"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "menus": {
+      "editor/context": [
+        {
+          "command": "zztool.removeConsole",
+          "when": "resourceLangId == typescript || resourceLangId == javascript || resourceLangId == typescriptreact || resourceLangId == javascriptreact || resourceLangId == vue",
+          "group": "navigation"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "zztool.show",
+        "title": "zztool.show"
+      },
+      {
+        "command": "zztool.opensetting",
+        "title": "zztool.opensetting"
+      },
+      {
+        "command": "zztool.removeConsole",
+        "title": "zztool.removeConsole"
+      }
+
+    ],
+    "configuration": {
+      "title": "ZZTOOL",
+      "properties": {
+        "config.open": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否开启下班提醒"
+        },
+        "config.time": {
+          "type": "string",
+          "default": "12:00,18:00",
+          "description": "设置时间段0-24小时多个时间段请用逗号分隔"
+        },
+        "config.before":{
+          "type": "string",
+          "default": "1",
+          "description": "提前提醒时间/分钟"
+        },
+        "config.times":{
+          "type": "number",
+          "default": 5,
+          "description": "提醒次数"
+        },
+        "config.customMessage": {
+          "type": "string",
+          "default": "老子蜀道山，下班了。",
+          "description": "提示语"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^8.17.0",
+    "@typescript-eslint/parser": "^8.17.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.16.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "moment": "^2.30.1"
+  }
+}
