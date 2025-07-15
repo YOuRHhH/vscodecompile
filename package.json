@@ -1,13 +1,13 @@
 {
-  "name": "zztool",
-  "displayName": "ZZTOOL",
+  "name": "zzcpt-zztool",
+  "displayName": "zzcpt-zztool",
   "description": "Alert Go Home",
-  "version": "1.0.5",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.96.0"
   },
   "icon": "logo.png",
-  "publisher": "SHOWTIME",
+  "publisher": "zt",
   "categories": [
     "Other"
   ],
